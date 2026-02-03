@@ -33,7 +33,7 @@ function Chat() {
       
         if (fileName === null) return;
 
-        // 없을 경우 기본값을 drawing으루 !
+        // 없을 경우 기본값을 drawing으루 
         if (fileName.trim() === "") {
           fileName = "drawing";
         }
@@ -63,7 +63,7 @@ function Chat() {
 
   const connectSocket = () => {
 
-    // 🎯 주소 끝에 ?userId= 를 붙여주는 게 서버 중복 방지의 Real Deal이야!
+    // 주소 끝에 ?userId= 를 붙여 서버 중복 방지
     const socketUrl = `ws://localhost/ws/chat/${roomId}?token=${token}`;
     webSocket.current = new WebSocket(socketUrl);
 
@@ -85,7 +85,7 @@ function Chat() {
         setUserCount(data.count);
         return;
       }
-      // 💡 그림판 관련 메시지는 DrawingBoard 안에서 처리하도록 건너뜀!
+      //  그림판 관련 메시지는 DrawingBoard 안에서 처리하도록 건너뜀
       if (data.type === 'DRAWING' || data.type === 'START' || data.type === 'CLEAR') return;
 
       const displayMsg = data.type === "ENTER" ? `📢 ${data.msg}` : `${data.name}: ${data.msg}`;

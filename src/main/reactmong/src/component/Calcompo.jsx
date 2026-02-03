@@ -101,7 +101,7 @@ function Calcompo() {
      .catch(err => console.error("방 목록 로드 실패! :", err));
   }
 
-  // 삭제까지 해보깡?
+  // 삭제까지 
   const handleDeleteEvent = (e) => {
     if (window.confirm(`${e.scheduleTitle} 일정을 삭제할까요 ?`)) {
        //  토큰 전달
@@ -136,7 +136,7 @@ function Calcompo() {
       </div>
       <Calendar
         localizer={localizer}
-        events={events}  // << 여기가 데이터를 넣는 방식이라구 함
+        events={events}  // << 여기가 데이터를 넣는 방식
         date={currentDate}
         onNavigate={(date) => setCurrentDate(date)}
         culture="ko"

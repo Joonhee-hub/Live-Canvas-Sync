@@ -49,7 +49,7 @@ export default function Login() {
     // 회원가입 입력값 변경 핸들러
     const handleCreateChange = (e) => {
         setCreate({...create, [e.target.name]: e.target.value});
-        if(e.target.name === 'userId') setIsIdChecked(false); // 아이디 바꾸면 중복확인 다시!
+        if(e.target.name === 'userId') setIsIdChecked(false); // 아이디 바꾸면 중복확인 다시
     };
     // 중복 확인
     const checkId = () => {

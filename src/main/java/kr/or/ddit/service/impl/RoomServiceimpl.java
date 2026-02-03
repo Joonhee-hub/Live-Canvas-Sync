@@ -31,7 +31,7 @@ public class RoomServiceimpl implements RoomService {
         if(result > 0) {
             RoomUserVO roomUserVO = new RoomUserVO();
 
-            // 부모 테이블에 들어간 그 ID를 그대로 세팅 // 여기서 VO에 ID 값이 담긴다규 ?ㅡ?
+            // 부모 테이블에 들어간 그 ID를 그대로 세팅 
             roomUserVO.setRoomId(roomVO.getRoomId());
 
             roomUserVO.setUserId(roomVO.getHost());

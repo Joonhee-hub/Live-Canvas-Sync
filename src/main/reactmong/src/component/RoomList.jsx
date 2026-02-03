@@ -24,7 +24,7 @@ export default function RoomList() {
         })
         .catch(err => console.error("방 목록 로드 실패! :", err));
 
-        // 🚀 소켓 로직은 쿨하게 삭제 완료! 
+        
     }, [token, refreshToggle]);
 
     const handleJoin = (roomId, roomTitle) => {

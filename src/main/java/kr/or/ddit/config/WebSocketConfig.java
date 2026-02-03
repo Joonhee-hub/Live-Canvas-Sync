@@ -17,9 +17,9 @@ public class WebSocketConfig implements WebSocketConfigurer {
     private final JwtUtill jwtUtill;
     @Override
     public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
-        // 🚀 핵심 포인트: 주소에 {roomId}를 써서 경로 변수를 활성화!
+        // 주소에 {roomId}를 써서 경로 변수를 활성화
         registry.addHandler(webSocketHandler, "/ws/chat/{roomId}")
-                // 💡 HTTP 세션(로그인 정보 등)을 WebSocket 세션으로 복사해주는 갓-터셉터!
+                //HTTP 세션(로그인 정보 등)을 WebSocket 세션으로 복사
                 .addInterceptors(new JwtHandshakeInterceptor(jwtUtill))
                 .setAllowedOrigins("*");
     }

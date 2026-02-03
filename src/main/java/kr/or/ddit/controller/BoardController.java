@@ -70,7 +70,7 @@ public class BoardController {
         boardVO.setUserId(userId);
         int result = 0;
 
-        // file : 이게 진짜 file 객체(?)
+        // file : 이게 진짜 file 객체
         MultipartFile file = boardVO.getNoticeFile();
 
         if(file != null && !file.isEmpty()) {
@@ -91,7 +91,7 @@ public class BoardController {
 
 
             try {
-                //내가 원하는 진짜 폴더에 파일 형태로 저장해
+                //내가 원하는 진짜 폴더에 파일 형태로 저장
                 file.transferTo(saveFile);
                 boardVO.setNoticeFileName(fileName);
 
@@ -121,7 +121,7 @@ public class BoardController {
 
         BoardVO boardVO = this.boardService.detail(noticeId);
 
-        // 2. 파일명이 있다면 하드디스크에서 파일을 찾아 Base64로 굽기 시작!
+        // 2. 파일명이 있다면 하드디스크에서 파일을 찾아 Base64로 
         if (boardVO != null && boardVO.getNoticeFileName() != null) {
             try {
                 String uploadFolder = "D:\\JMong\\";
@@ -135,8 +135,8 @@ public class BoardController {
                     // 파일의 MIME 타입을 자동으로 알아내기 (image/jpeg, image/png 등)
                     String mimeType = Files.probeContentType(file.toPath());
 
-                    // 브라우저가 바로 이미지로 인식할 수 있게 prefix를 붙여서 VO에 세팅!
-                    // (VO에 base64Image라는 필드가 선언되어 있어야 해!)
+                   
+                    // VO에 base64Image라는 필드가 선언
                     boardVO.setBase64Image("data:" + mimeType + ";base64," + base64String);
                     log.info("이미지 Base64 변환 완료! (Size: {} bytes)", fileContent.length);
                 }
@@ -152,20 +152,20 @@ public class BoardController {
             @RequestParam("noticeId") String noticeId,
             @RequestHeader(value = "Authorization", required = false) String token
     ) {
-        // 1. 토큰 없으면 바로 컷 (리액트에서 '로그인 필요' 알럿 띄우게)
+        //  토큰 없으면  컷 
         if (token == null || token.isEmpty()) return "need_login";
 
-        // 2. 토큰에서 유저 ID 추출 (동료의 무기)
+        //  토큰에서 유저 ID 추출 
         String currentUserId = jwtutill.getUserIdFromToken(token);
 
-        // 3. 데이터 조회
+        //  데이터 조회
         BoardVO board = boardService.detail(noticeId);
         if (board == null) return "not_found";
 
-        // 4. 본인 확인 (작성자 검증)
+        // 본인 확인 (작성자 검증)
         if (!board.getUserId().equals(currentUserId)) return "no_auth";
 
-        // 5. 실제 파일 삭제
+        //  실제 파일 삭제
         if (board.getNoticeFileName() != null) {
             File file = new File("D:\\JMong\\", board.getNoticeFileName());
             if (file.exists()) file.delete();

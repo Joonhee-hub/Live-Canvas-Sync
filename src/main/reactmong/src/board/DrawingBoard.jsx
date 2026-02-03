@@ -10,8 +10,8 @@ const DrawingBoard = forwardRef(({ sharedWebSocket, nickname }, ref) => {
     // 🆔 내 고유 ID (메시지 자폭 방지용)
     const myId = useRef(Math.random().toString(36).substring(2, 11)).current;
 
-    // 👤 [핵심] 내 이름 결정 시스템
-    // 준삣삐의 프로젝트 환경에 맞춰서 닉네임 -> 이름 -> 기본값 순으로 체크!
+    // [핵심] 내 이름 결정 시스템
+    //  닉네임 -> 이름 -> 기본값 순
     const myName = nickname || localStorage.getItem("userNick") || localStorage.getItem("username") || "";
 
     // 🔒 락킹 시스템 및 이름 표시 상태
@@ -38,12 +38,12 @@ const DrawingBoard = forwardRef(({ sharedWebSocket, nickname }, ref) => {
         const handleMessage = (event) => {
             const data = JSON.parse(event.data);
 
-            // 내가 보낸 메시지면 락 로직 무시 (Very Important!)
+            // 내가 보낸 메시지면 락 로직 무시 
             if (data.senderId === myId) return;
 
             if (data.type === "START") {
                 setIsLocked(true);
-                // 💡 상대방이 보낸 senderName을 화면에 띄우기 위해 저장!
+                // 상대방이 보낸 senderName을 화면에 띄우기 위해 저장!
                 setLockedUserName(data.senderName || "누군가"); 
                 setLines((prev) => [...prev, { points: data.point, color: data.color }]);
             }
@@ -89,7 +89,7 @@ const DrawingBoard = forwardRef(({ sharedWebSocket, nickname }, ref) => {
             sharedWebSocket.send(JSON.stringify({
                 type: "START",
                 senderId: myId,
-                senderName: myName, // 👈 내 닉네임을 실어서 발사!
+                senderName: myName, 
                 point: [pos.x, pos.y],
                 color: color
             }));
@@ -114,7 +114,7 @@ const DrawingBoard = forwardRef(({ sharedWebSocket, nickname }, ref) => {
             sharedWebSocket.send(JSON.stringify({
                 type: "DRAWING",
                 senderId: myId,
-                senderName: myName, // 👈 지속적으로 내 이름 실어줌
+                senderName: myName, 
                 point: [point.x, point.y],
                 color: color
             }));
