@@ -72,7 +72,7 @@ export default function Login() {
         e.preventDefault();
         if(!isIdChecked) return alert("아이디 중복 확인을 해주세요");
 
-        axios.post("http://192.168.35.23/user/create", create)
+        axios.post("http://localhost/user/create", create)
             .then(res => {
                 if(res.data.result === "success") {
                     alert("회원가입을 축하드립니다.");

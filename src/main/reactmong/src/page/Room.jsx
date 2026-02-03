@@ -50,7 +50,7 @@ function Room() {
   // 회의 참가 Modal을 눌렀을 때만 실행 !
   useEffect(()=> {
     
-    axios.get("http://localhostroom/joinlist",{
+    axios.get("http://localhost/room/joinlist",{
       headers:{
         Authorization: token 
       }
