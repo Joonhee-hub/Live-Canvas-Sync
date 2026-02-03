@@ -1,0 +1,338 @@
+/* 전체 컨텐츠 영역 */
+.room-page-content {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 상단 버튼 헤더 섹션 */
+.header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    margin-top: 5px;
+}
+
+/* 참가 버튼 (사이즈 업 + 연한 회색 조화 색상) */
+.join-room-btn {
+    /* 1. 색상: 회색과 가장 잘 어울리는 소프트 블루그레이 */
+    background-color: #8faadc; /* 밝고 깨끗한 스카이 그레이 */
+    color: white;
+    border: none;
+    
+    /* 2. 사이즈: 가독성과 클릭 편의성을 위해 대폭 상향 */
+    padding: 10px 24px;       /* 위아래/좌우 여백 확대 */
+    font-size: 16px;          /* 글자 크기 확대 */
+    font-weight: 700;         /* 글자 두께 강조 */
+    min-width: 100px;         /* 최소 너비 확보로 안정감 부여 */
+    
+    /* 3. 디테일 */
+    border-radius: 12px;      /* 조금 더 둥글게 해서 부드러운 인상 */
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); /* 은은한 입체감 */
+    transition: all 0.2s ease-in-out;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+/* 호버 시: 너무 어두워지지 않게 톤 유지 */
+.join-room-btn:hover {
+    background-color: #728ec1; /* 살짝 진해지면서 세련된 느낌 */
+    transform: translateY(-2px); /* 살짝 떠오르는 효과 */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* 액티브 시: 눌리는 느낌 */
+.join-room-btn:active {
+    transform: translateY(0);
+}
+
+/* 회의방 생성 등 주요 액션 버튼 */
+.create-room-btn {
+    background-color: #64748b; /* 신뢰감을 주는 중간 회색 */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: filter 0.2s;
+}
+
+.create-room-btn:hover {
+    filter: brightness(1.1); /* 호버 시 살짝 밝아지며 반응형 강조 */
+}
+.create-room-btn {
+    background-color: #555;
+    color: white;
+    border-radius: 8px;
+}
+
+/* ------------------------------------------------ */
+/* 모달(Alert) 커스텀 CSS                            */
+/* ------------------------------------------------ */
+
+.custom-alert-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.custom-alert-box {
+    background: white;
+    width: 420px; /* 테이블 가독성을 위해 너비를 살짝 넓힘 */
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    animation: alert-show 0.2s ease-out;
+}
+
+@keyframes alert-show {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.alert-header {
+    padding: 15px;
+    font-weight: bold;
+    font-size: 18px;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+    background-color: #fcfcfc;
+}
+
+.alert-body {
+    padding: 25px;
+}
+
+/* 핵심: 라벨과 입력창을 묶는 그룹 */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.input-group label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+/* 제목 입력창 & 인원수 선택창 공통 스타일 */
+.alert-input, .alert-select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    box-sizing: border-box;
+    font-size: 15px;
+}
+
+.alert-input:focus, .alert-select:focus {
+    border-color: #4A90E2;
+}
+
+.alert-footer {
+    display: flex;
+    border-top: 1px solid #eee;
+}
+
+.alert-btn {
+    flex: 1;
+    padding: 15px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.alert-btn.cancel {
+    color: #888;
+    border-right: 1px solid #eee;
+}
+
+.alert-btn.confirm {
+    color: #007bff;
+    font-weight: bold;
+}
+
+.alert-btn:hover {
+    background-color: #f9f9f9;
+}
+
+/* ------------------------------------------------ */
+/* 모달 내 회의 리스트 테이블 스타일 (추가됨)           */
+/* ------------------------------------------------ */
+
+.room-table-container {
+    width: 100%;
+    max-height: 180px; /* 리스트가 길어질 경우 스크롤 */
+    overflow-y: auto;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    background-color: #fff;
+}
+
+.room-list-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    table-layout: fixed;
+}
+
+.room-list-table th {
+    background-color: #f8f9fa;
+    color: #555;
+    padding: 10px;
+    border-bottom: 2px solid #eee;
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    font-weight: 600;
+}
+
+.room-list-table td {
+    padding: 10px;
+    border-bottom: 1px solid #f1f1f1;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #444;
+}
+
+/* 선택 가능한 행 스타일 */
+.clickable-row {
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.clickable-row:hover {
+    background-color: #edf5ff;
+}
+
+/* 강조할 코드 셀 스타일 */
+.code-cell {
+    font-family: 'Consolas', 'Monaco', monospace;
+    color: #4A90E2;
+    font-weight: bold;
+}
+
+/* 데이터 없음 알림 스타일 */
+.no-data {
+    color: #bbb;
+    padding: 40px !important;
+    text-align: center;
+    font-style: italic;
+}
+
+/* 테이블 컨테이너용 커스텀 스크롤바 */
+.room-table-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.room-table-container::-webkit-scrollbar-track {
+    background: #f7f7f7;
+}
+
+.room-table-container::-webkit-scrollbar-thumb {
+    background: #d1d1d1;
+    border-radius: 10px;
+}
+
+.room-table-container::-webkit-scrollbar-thumb:hover {
+    background: #c1c1c1;
+}
+
+/* ------------------------------------------------ */
+/* 공지사항 내용 (textarea) 색상 통일 스타일        */
+/* ------------------------------------------------ */
+
+.alert-area {
+    width: 100%;
+    min-height: 150px; /* 이미지처럼 조금 더 넉넉하게 수정 */
+    padding: 15px;
+    background-color: #f2f2f2; 
+    border: 1px solid #e0e0e0;
+    border-radius: 12px; /* 이미지의 둥근 느낌에 맞춰 상향 조정 */ 
+    outline: none;
+    box-sizing: border-box;
+    font-size: 15px;
+    font-family: inherit;
+    line-height: 1.6;
+    resize: vertical;
+    transition: all 0.2s ease;
+    color: #333;
+}
+
+/* 포커스 되었을 때 스타일 */
+.alert-area:focus {
+    background-color: #ffffff; /* 입력 시에는 흰색으로 변하게 하면 가독성이 좋습니다 */
+    border-color: #4A90E2;
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+}
+
+/* 첨부 파일 버튼도 입력창들과 둥근 정도(Radius)를 맞춰주면 더 예뻐요 */
+.file-upload-label {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #f2f2f2;
+    color: #555;
+    border-radius: 10px; /* 통일감 부여 */
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    border: 1px solid #e0e0e0;
+    transition: 0.2s;
+}
+
+.file-upload-label:hover {
+    background-color: #e8e8e8;
+}
+
+/* 실제 input 태그는 숨김 */
+.file-input-hidden {
+    display: none;
+}
+
+/* 커스텀 버튼 스타일 (label을 버튼으로 활용) */
+.file-upload-label {
+    display: inline-block;
+    padding: 10px 18px;
+    background-color: #f0f0f0;
+    color: #555;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.2s;
+    border: 1px solid #ddd;
+    margin-top: 5px;
+}
+
+.file-upload-label:hover {
+    background-color: #e2e2e2;
+    border-color: #ccc;
+}
+
+/* 파일명이 표시되는 텍스트 영역 */
+.file-name-display {
+    margin-top: 8px;
+    font-size: 13px;
+    color: #666;
+    word-break: break-all;
+    display: block;
+}

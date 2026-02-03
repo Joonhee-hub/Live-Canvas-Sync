@@ -1,0 +1,206 @@
+/* 전체 컨테이너: 중앙 정렬 및 여백 */
+.room-list-container {
+    padding: 40px 20px;
+    max-width: 850px;
+    margin: 0 auto;
+    font-family: 'Pretendard', -apple-system, sans-serif;
+}
+
+/* 메인 박스 영역: 연한 미색/회색 배경 */
+.yellow-box-area {
+    border: 1px solid #e9ecef;
+    border-radius: 24px;
+    padding: 30px;
+    background-color: #f8f9fa; /* 아주 밝은 회색 */
+    min-height: 450px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.02);
+}
+
+/* ⚪ 회의방 아이템 카드: 화이트 배경 + 정렬 */
+.room-item-row {
+    display: flex;
+    justify-content: space-between; /* 양 끝 정렬 */
+    align-items: center;           /* 세로 중앙 정렬 */
+    background-color: #ffffff;
+    padding: 18px 28px;
+    margin-bottom: 16px;
+    border-radius: 16px;
+    border: 1px solid #f1f3f5;
+    transition: all 0.25s ease;
+}
+
+.room-item-row:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.04);
+    border-color: #dee2e6;
+}
+
+/* 왼쪽 텍스트 정렬 */
+.room-info-left {
+    flex: 1; /* 가용 공간 확보 */
+}
+
+.room-name-text {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #343a40;
+}
+
+/* 🎯 오른쪽 버튼 영역 정렬 */
+.room-btns-right {
+    display: flex;
+    gap: 12px;       /* 버튼 사이 간격 유지 */
+    align-items: center;
+    justify-content: flex-end;
+    min-width: 160px; /* 버튼 영역 너비 고정으로 삐뚤어짐 방지 */
+}
+
+/* 버튼 공통: 크기 및 글꼴 정렬 */
+.btn-join, .btn-exit {
+    border: none;
+    height: 40px;
+    padding: 0 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 0.95rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+/* 참가 버튼: 깔끔한 밝은 회색 */
+.btn-join {
+    background-color: #f1f3f5;
+    color: #495057;
+    border: 1px solid #dee2e6;
+}
+
+.btn-join:hover {
+    background-color: #e9ecef;
+}
+
+/* 나가기 버튼: 차분한 다크 그레이 */
+.btn-exit {
+    background-color: #495057;
+    color: #ffffff;
+}
+
+.btn-exit:hover {
+    background-color: #343a40;
+}
+
+/* ⚙️ 관리(톱니바퀴) 버튼: 배경 없이 깔끔하게 */
+.owner-option-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.8rem;
+    color: #adb5bd;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, color 0.2s;
+}
+
+.owner-option-btn:hover {
+    transform: rotate(90deg);
+    color: #868e96;
+}
+
+/* 데이터 없음 메시지 중앙 정렬 */
+.no-data {
+    text-align: center;
+    color: #adb5bd;
+    margin-top: 100px;
+    font-size: 1.1rem;
+}
+
+
+
+/* 🗝️ 입장 코드 & 종료 버튼 정렬 */
+.modal-code-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f8f9fa;
+    padding: 12px 18px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.code-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.code-value {
+    color: #495057;
+    font-weight: 800;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
+
+/* ❌ 회의 종료 버튼 */
+.btn-destroy {
+    background-color: #495057;
+    color: white;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* 👥 멤버 리스트 아이템 정렬 (핵심!) */
+.manage-item {
+    display: flex;
+    justify-content: space-between; /* 이름은 왼쪽, 버튼은 오른쪽 */
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #f1f3f5;
+}
+
+/* ✕ 추방 버튼 */
+.btn-mini-delete {
+    background: #495057;
+    color: white;
+    border: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+/* ✅ 승인/거절 버튼 컨테이너 */
+.apply-btns {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-mini-approve, .btn-mini-reject {
+    padding: 5px 12px;
+    font-size: 12px;
+    border-radius: 6px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-mini-approve { background: #495057; color: white; }
+.btn-mini-reject { background: #adb5bd; color: white; }
+
+/* 리스트 스타일 제거 */
+.manage-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}

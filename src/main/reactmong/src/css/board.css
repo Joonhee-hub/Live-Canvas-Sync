@@ -1,0 +1,303 @@
+/* 1. 전체 컨테이너 */
+.board-wrapper {
+    background-color: #ffffff;
+    border: 1px solid #e9ecef;
+    border-radius: 16px;
+    padding: 30px;
+    margin: 20px auto;
+    max-width: 1000px;
+    box-shadow: 0 8px 24px rgba(149, 157, 165, 0.1);
+    font-family: 'Pretendard', -apple-system, sans-serif;
+}
+
+/* 2. 상단 헤더 (양끝 정렬) */
+.board-header {
+    display: flex;
+    justify-content: space-between; /* 셀렉트 좌측, 버튼 우측 */
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+/* 3. 셀렉트 박스 스타일 (진한 테두리) */
+.board-select {
+    width: 240px;
+    padding: 10px 14px;
+    font-size: 14px;
+    border: 2px solid #adb5bd; /* 요청하신 진한 테두리 */
+    border-radius: 8px;
+    outline: none;
+    background-color: #ffffff;
+    color: #343a40;
+    cursor: pointer;
+    transition: border-color 0.2s;
+}
+
+.board-select:focus {
+    border-color: #1971c2;
+}
+
+/* 4. 등록 버튼 스타일 (작은 사이즈 + 연한 하늘색 테두리) */
+.register-btn {
+    background-color: transparent;
+    color: #4dabf7; /* 연한 하늘색 글자 */
+    border: 1.5px solid #d0ebff; /* 연한 하늘색 테두리 */
+    padding: 6px 14px; /* 작은 사이즈 */
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.register-btn:hover {
+    background-color: #f1f9ff;
+    border-color: #4dabf7;
+    color: #1c7ed6;
+}
+
+/* 5. 요약 정보 */
+.board-summary {
+    font-size: 15px;
+    font-weight: 700;
+    color: #212529;
+    margin-bottom: 12px;
+    padding-left: 5px;
+}
+
+.board-summary span {
+    color: #1c7ed6;
+    margin-left: 5px;
+}
+
+/* 6. 테이블 스타일 (네이비/블루 톤) */
+.board-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    border-top: 2px solid #343a40;
+}
+
+.board-table thead {
+    background-color: #f8f9fa;
+}
+
+.board-table th {
+    padding: 15px 0;
+    color: #495057;
+    font-weight: 700;
+    font-size: 14px;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.board-table td {
+    padding: 15px 0;
+    border-bottom: 1px solid #f1f3f5;
+    font-size: 14px;
+    color: #495057;
+    text-align: center;
+    vertical-align: middle;
+}
+
+/* 제목 컬럼 왼쪽 정렬 */
+.board-table td:nth-child(2) {
+    text-align: center;
+    padding-left: 20px;
+    font-weight: 500;
+    color: #212529;
+}
+
+/* 7. 테이블 내 '보기' 버튼 */
+.view-btn {
+    background-color: #e7f5ff;
+    color: #1971c2;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.view-btn:hover {
+    background-color: #1971c2;
+    color: white;
+}
+
+/* 8. 데이터 없음 및 컬럼 설정 */
+.no-data {
+    padding: 100px 0 !important;
+    color: #adb5bd;
+}
+
+.col-no { width: 60px; }
+.col-author { width: 120px; }
+.col-action { width: 90px; }
+
+
+/* --- 상세보기 전용 모달 스타일 (최종본) --- */
+
+/* 1. 모달 박스 자체: 넓고 쾌적하게 */
+.custom-alert-box.detail-modal {
+    width: 800px; 
+    max-width: 90vw;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 2. 헤더: 제목 중앙 & 버튼 우측 레이아웃 */
+.detail-header {
+    background: #f8f9fa;
+    padding: 30px 20px;     /* 여백을 줘서 웅장하게 */
+    border-bottom: 2px solid #dee2e6;
+    color: #212529;
+    
+    position: relative;     /* 버튼 배치의 기준점 */
+    display: flex;
+    justify-content: center; /* 제목을 정중앙으로 */
+    align-items: center;
+    min-height: 90px;
+}
+
+/* 3. 공지 제목: 굵고 크게! */
+.detail-header span {
+    font-size: 1.5rem;      /* 🚀 2rem에서 1.5rem으로 적절히 감량! */
+    font-weight: 800;       /* 두께는 유지해서 존재감은 뿜뿜하게 */
+    text-align: center;
+    word-break: break-all;
+    padding: 0 70px;        /* 버튼이랑 겹치지 않게 여백 살짝 조정 */
+    color: #1a1c1e;      /* 버튼이랑 겹치지 않게 여백 */
+}
+
+/* 4. 삭제 버튼: 콤팩트하고 날렵하게 */
+.delete-btn {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    
+    background-color: #ff4d4f;
+    color: white;
+    border: none;
+    padding: 6px 12px;      /* 🚀 작은 사이즈 */
+    border-radius: 4px;
+    font-size: 0.8rem;      /* 🚀 작은 글씨 */
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    z-index: 10;
+}
+
+.delete-btn:hover {
+    background-color: #d9363e;
+    transform: translateY(-50%) scale(0.95); /* 누르는 맛 추가 */
+}
+
+/* 5. 데이터 필드 및 내용 영역 */
+.detail-value-field {
+    width: 100%;
+    padding: 12px 15px;
+    background-color: #f1f3f5;
+    border-radius: 6px;
+    font-size: 1rem;
+    color: #495057;
+    border: 1px solid #e9ecef;
+    text-align: left;
+}
+
+.detail-content-area {
+    min-height: 300px;
+    max-height: 500px;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    line-height: 1.6;
+    background-color: #fdfdfd;
+}
+
+
+/* 페이지 네이션 영역 - Layout */
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.pagination-list {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 4px; /* 버튼 사이 간격을 살짝 줘서 더 Trend하게 */
+}
+
+/* 개별 버튼 기본 스타일 - Compact & Clean */
+.page-item {
+    min-width: 32px; /* 정사각형 느낌 유지 */
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
+    cursor: pointer;
+    background-color: #fff;
+    color: #495057; /* 너무 쨍한 파랑 대신 세련된 다크 그레이 */
+    border: 1px solid #dee2e6;
+    border-radius: 6px; /* 살짝 둥글게 */
+    font-size: 13px; /* 폰트 사이즈 살짝 다운 */
+    transition: all 0.2s ease-in-out;
+    user-select: none;
+}
+
+/* 숫자 전용 스타일 (더 작게) */
+.page-item:not(.disabled):not(.active) {
+    font-weight: 500;
+}
+
+/* Previous, Next 버튼 전용 (글자 크기 더 줄임) */
+.page-item:first-child,
+.page-item:last-child {
+    font-size: 11px;
+    text-transform: uppercase; /* 대문자로 세련미 업 */
+    letter-spacing: 0.5px;
+    padding: 0 12px;
+}
+
+/* Hover 효과 */
+.page-item:hover:not(.disabled):not(.active) {
+    background-color: #f1f3f5;
+    border-color: #ced4da;
+    color: #212529;
+}
+
+/* Active 상태 - GigaChad's Choice */
+.page-item.active {
+    background-color: #007bff;
+    color: #ffffff;
+    border-color: #007bff;
+    font-weight: 600;
+    box-shadow: 0 2px 4px rgba(0, 123, 255, 0.2); /* 은은한 그림자 */
+}
+
+/* Disabled 상태 */
+.page-item.disabled {
+    color: #adb5bd;
+    cursor: not-allowed;
+    background-color: #f8f9fa;
+    border-color: #e9ecef;
+}
+
+/* 테이블 영역 고정 (흔들림 방지 완료) */
+.table-content-area {
+    min-height: 380px; /* 5개 기준 적당한 높이로 Re-fit */
+    display: flex;
+    flex-direction: column;
+}
+
+.board-table tr {
+    height: 55px; /* 행 높이도 살짝 줄여서 콤팩트하게 */
+}

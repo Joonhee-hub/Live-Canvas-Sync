@@ -1,0 +1,99 @@
+/* main.css */
+
+.schedule-container {
+  max-width: 600px; /* 밀집도를 위해 폭을 살짝 줄임 */
+  margin: 50px auto;
+  font-family: 'Pretendard', -apple-system, sans-serif;
+}
+
+.schedule-header {
+  margin-bottom: 25px;
+}
+
+.schedule-header p {
+  font-size: 20px;
+  color: #555;
+}
+
+.count-highlight {
+  color: #ff4757;
+  font-weight: 800;
+  background: #fff0f0;
+  padding: 2px 8px;
+  border-radius: 6px;
+  margin: 0 4px;
+  font-size: 18px;
+}
+
+.schedule-card {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  border: 1px solid #f1f3f5;
+  padding: 15px 25px;
+}
+
+.schedule-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* ⭐ 황금 비율 설정: 번호와 날짜는 고정하고 제목은 유동적으로 */
+.col-index { width: 50px; } 
+.col-date  { width: 150px; }
+
+.schedule-table th {
+  padding: 12px 10px;
+  font-size: 13px;
+  color: #adb5bd;
+  text-align: left;
+  border-bottom: 2px solid #f8f9fa;
+   text-align: center;
+}
+
+/* 마감 기한 헤더는 오른쪽 정렬 */
+.schedule-table th:last-child {
+  padding-right: 20px;  
+}
+
+.schedule-table td {
+  padding: 18px 10px;
+  vertical-align: middle;
+  text-align: center;
+}
+
+/* 번호: 연한 회색으로 세련되게 */
+.index-cell {
+  color: #ced4da;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* 일정 내용: 진한 색상과 강조 */
+.title-cell {
+  font-weight: 600;
+  color: #2d3436;
+  font-size: 16px;
+  text-align: center;
+}
+
+
+/* 마감 배지: 색상과 가독성 최적화 */
+.date-badge {
+  display: inline-block;
+  background: #fff5f5;
+  color: #ff4757;
+  padding: 6px 14px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  white-space: nowrap;
+  letter-spacing: -0.3px;
+}
+
+.empty-row {
+  text-align: center;
+  padding: 60px 0 !important;
+  color: #ccc;
+  font-size: 15px;
+}
